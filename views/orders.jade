@@ -1,3 +1,22 @@
-//
-   Created by jakobgaardandersen on 28/10/14.
-
+extends layout
+block content
+    div.container
+        h1 Order View
+        table.table.table-striped.table-hover.table-bordered
+            thead
+                tr
+                    th id
+                    th Date
+                    th Name
+                    th Address
+            tbody
+            each order in data
+                tr
+                    td
+                        a(href='/orders/' + order._id) #{order._id}
+                    td
+                        p #{order.orderDate}
+                    td
+                        p #{order.shipName}
+                    td
+                        p #{order.shipAddress}
