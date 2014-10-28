@@ -1,0 +1,41 @@
+extends layout
+block content
+    div.container
+        h1 Order details
+        div.col-md-12
+            div.col-md-3
+                p Id: #{order._id}
+                p Date: #{order.orderDate}
+                p Required: #{order.requiredDate}
+                p Shipped: #{order.shippedDate}
+            div.col-md-3
+            div.col-md-3
+                p Name: #{order.shipName}
+                p Address: #{order.shipAddress}
+                p City: #{order.shipCity}
+                p Zip:  #{order.shipPostalCode}
+                p Country:  #{order.shipCountry}
+            div.col-md-3
+        table.table.table-striped.table-hover.table-bordered
+            thead
+                tr
+                    th Product
+                    th Unit Price
+                    th Quantity
+                    th Discount
+                    th Price
+            tbody
+            //each orderDet in orderDetails
+                tr
+                    //td
+                        p #{orderDet}
+                    td
+                        p #{orderDet.unitPrice}
+                    td
+                        p #{orderDet.quantity}
+                    td
+                        p #{orderDet.discount}
+                    //td
+                        p #{orderDet.}
+        a(href='/orders', target='_parent').btn.btn-primary Back
+

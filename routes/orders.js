@@ -14,7 +14,6 @@ router.get('/', function (req, res) {
                 error: err
             });
         } else {
-            console.log(orders);
             res.render('orders', {data: orders});
         }
     });
@@ -35,9 +34,60 @@ function getOrders(callback) {
     });
 }
 
-router.get('/:id', function(req, res) {
-
+router.get('/:id', function (req, res) {
+    var id = req.param('id');
+    getOrder(id, function (err, data) {
+        if (err) {
+            res.render(error, {
+                message: err.message,
+                error: err
+            });
+        } else {
+            getOrderDetails(id, function (err, detailsData) {
+                if (err) {
+                    res.render(error, {
+                        message: err.message,
+                        error: err
+                    });
+                } else {
+                    var dataObj = {order: data, orderDetails: detailsData};
+                    console.log(dataObj);
+                    res.render('orderdetails', dataObj);
+                }
+            });
+        }
+    });
 });
+
+function getOrder(id, callback) {
+    mongo.connect();
+    var order;
+    models.OrderModel.find({_id: id}, function (err, data) {
+        if (err) {
+            console.log('Error in getOrder ' + err);
+            callback(err);
+        } else {
+            order = data[0];
+        }
+        mongo.close();
+        callback(null, order);
+    });
+}
+
+function getOrderDetails(id, callback) {
+    mongo.connect();
+    var orderDetails = [];
+    models.DetailsModel.find({orderId: id}, function (err, data) {
+        if (err) {
+            console.log('Error in getorderDetails ' + err);
+            callback(err);
+        } else {
+            orderDetails = data;
+        }
+        mongo.close();
+        callback(null, orderDetails);
+    });
+}
 
 module.exports = router;
 
