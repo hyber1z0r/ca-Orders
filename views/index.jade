@@ -1,6 +1,8 @@
 extends layout
 block content
     div.container
+        h1 Welcome to CA3
+        h4 made by Damjan, Jakob, Vuk, Youssef
         div.col-md-6
             table.table.table-striped.table-hover.table-bordered
                 tr
@@ -23,6 +25,17 @@ block content
                     td 2
                     td 3
                     td 4
+        div.col-md-6
+            div.flexslider
+                ul.slides
+                    li
+                        img(src='slide1.jpg')
+                        li
+                            img(src='slide2.jpg')
+                        li
+                            img(src='slide3.jpg')
+                        li
+                            img(src='slide4.jpg')
         button.btn.btn-default
             span.glyphicon.glyphicon-star Ok
         button.btn.btn-danger Ok
