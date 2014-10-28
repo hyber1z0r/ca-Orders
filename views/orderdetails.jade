@@ -1,3 +1,5 @@
+// Created by jakobgaardandersen on 28/10/14.
+
 extends layout
 block content
     div.container
@@ -25,17 +27,27 @@ block content
                     th Discount
                     th Price
             tbody
-            //each orderDet in orderDetails
+                - var sum = 0;
+                each orderDet in orderDetails
+                    tr
+                        td
+                            p #{orderDet.productId}
+                        td
+                            p #{orderDet.unitPrice}
+                        td
+                            p #{orderDet.quantity}
+                        td
+                            p #{orderDet.discount}
+                        td
+                            - sum += orderDet.quantity * orderDet.unitPrice * (1 - orderDet.discount);
+                            p #{orderDet.quantity * orderDet.unitPrice * (1 - orderDet.discount)}
                 tr
-                    //td
-                        p #{orderDet}
                     td
-                        p #{orderDet.unitPrice}
+                        h4 Total
                     td
-                        p #{orderDet.quantity}
                     td
-                        p #{orderDet.discount}
-                    //td
-                        p #{orderDet.}
-        a(href='/orders', target='_parent').btn.btn-primary Back
+                    td
+                    td
+                        h4 #{sum}
 
+        a(href='/orders', target='_parent').btn.btn-primary Back
