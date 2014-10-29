@@ -1,10 +1,18 @@
 extends layout
 block content
     div.container
-        h1 Welcome to CA3
-        h4 made by Damjan, Jakob, Vuk, Youssef
+        div.jumbotron
+            h1 Welcome to CA3
+            h4 made by Damjan, Jakob, Vuk, Youssef
         div.col-md-6
-        p 
+            p Bonus II: Add pages for listing categories, products, employees, and customers. Clicking on elements in the categories page should lead you to a list of products related to this category, i.e. clicking on the Beverages category should give you all products in this category. Clicking on elements in the products, employees, and customers list should lead to a list of orders related to these elements, i.e. clicking on the product Chai will give you all orders with that product
+            div.col-md-3
+                a(href='http://www.github.com/hyber1z0r/ca-orders').btn.btn-primary Source &nbsp;
+                  span.glyphicon.glyphicon-cloud-download
+            div.col-md-3
+                a(href='#').btn.btn-primary Documentation &nbsp;
+                    span.glyphicon.glyphicon-cloud-download
+
         div.col-md-6
             #wrapper
                 #slider
