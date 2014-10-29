@@ -1,22 +1,24 @@
 extends layout
 block content
-    div.container
-        h1 Employee details
-        div.col-md-12
-            div.col-md-3
-                p ID: #{employee._id}
-                p Country:
-                p Region:
-                p City:
-                p Zip:
-                p Address:
-            div.col-md-3
-            div.col-md-3
-                p Company:
-                p Title:
-                p Name:
-                p Phone:
-                p Fax:
-            div.col-md-3
-        a(target='_parent' id="BackButton2").btn.btn-primary
-            span.glyphicon.glyphicon-arrow-left &nbsp;Back
+   div.container
+      h1 View Employees
+      table.table.table-striped.table-hover.table-bordered
+         thead
+            tr
+               th ID
+               th Name
+               th Title
+               th Hire date
+         tbody
+         each employee in employees
+            tr
+               td
+                  p #{employee._id}
+               td
+                  a(href='/employees/' + employee._id) #{employee.titleOfCourtesy} #{employee.firstName} #{employee.lastName}
+               td
+                  p #{employee.title}
+               td
+                  p #{employee.hireDate}
+      a(href='/orders', target='_parent').btn.btn-primary
+         span.glyphicon.glyphicon-arrow-left &nbsp;Back

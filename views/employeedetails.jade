@@ -1,0 +1,25 @@
+extends layout
+block content
+    div.container
+        h1 Employee details
+        div.col-md-12
+            div.col-md-3
+                p ID: #{employee._id}
+                p Firstname: #{employee.firstName}
+                p Lastname: #{employee.lastName}
+                p Title: #{employee.title}
+                p Courtesy: #{employee.titleOfCourtesy}
+                p Birthdate: #{employee.birthDate}
+                p Hiredate: #{employee.hireDate}
+            div.col-md-3
+            div.col-md-3
+                p Country: #{employee.country}
+                p Region: #{employee.region}
+                p Postalcode: #{employee.postalCode}
+                p City: #{employee.city}
+                p Address: #{employee.address}
+                p Phone: #{employee.homePhone}
+                p Notes: #{employee.notes}
+            div.col-md-3
+        a(target='_parent' id="BackButton2").btn.btn-primary
+            span.glyphicon.glyphicon-arrow-left &nbsp;Back

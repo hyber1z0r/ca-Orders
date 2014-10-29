@@ -9,7 +9,6 @@ var routes = require('./routes/index');
 var orders = require('./routes/orders');
 var customers = require('./routes/customers');
 var employees = require('./routes/employees');
-var customerview = require ('./routes/customerview');
 
 var app = express();
 

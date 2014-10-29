@@ -15,7 +15,7 @@ router.get('/', function (req, res) {
                 error: err
             });
         } else {
-            res.render('orders', {data: orders});
+            res.render('orders', {orders: orders});
         }
     });
 });

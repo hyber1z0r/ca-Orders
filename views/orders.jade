@@ -11,7 +11,7 @@ block content
                     th Name
                     th Address
             tbody
-            each order in data
+            each order in orders
                 tr
                     td
                         a(href='/orders/' + order._id) #{order._id}

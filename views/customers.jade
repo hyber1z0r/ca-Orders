@@ -1,23 +1,24 @@
 extends layout
 block content
-   div.container
-      h1 Customer details
-      div.col-md-12
-         div.col-md-3
-            p ID: #{customer._id}
-            p Country: #{customer.country}
-            p Region: #{customer.region}
-            p City: #{customer.city}
-            p Zip: #{customer.postalCode}
-            p Address: #{customer.address}
-
-         div.col-md-3
-         div.col-md-3
-            p Company: #{customer.companyName}
-            p Title: #{customer.contactTitle}
-            p Name: #{customer.contactName}
-            p Phone: #{customer.phone}
-            p Fax: #{customer.fax}
-         div.col-md-3
-      a(target='_parent' id="BackButton2").btn.btn-primary
-         span.glyphicon.glyphicon-arrow-left &nbsp;Back
+    div.container
+        h1 View Customers
+        table.table.table-striped.table-hover.table-bordered
+            thead
+                tr
+                    th ID
+                    th Company
+                    th Country
+                    th Phone
+            tbody
+            each customer in customers
+                tr
+                    td
+                        a(href='/customers/' + customer._id) #{customer._id}
+                    td
+                        p #{customer.companyName}
+                    td
+                        p #{customer.country}
+                    td
+                        p #{customer.phone}
+        a(href='/orders', target='_parent').btn.btn-primary
+            span.glyphicon.glyphicon-arrow-left &nbsp;Back
