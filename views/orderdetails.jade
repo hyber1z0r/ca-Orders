@@ -1,4 +1,3 @@
-// Created by jakobgaardandersen on 28/10/14.
 
 extends layout
 block content
@@ -10,9 +9,12 @@ block content
                 p Date: #{order.orderDate}
                 p Required: #{order.requiredDate}
                 p Shipped: #{order.shippedDate}
+                p Employee:&nbsp;
+                    a(href='/employees/' + order.employee._id) #{order.employee.firstName} #{order.employee.lastName}
             div.col-md-3
             div.col-md-3
-                p Name: #{order.shipName}
+                p Name:&nbsp;
+                    a(href='/customers/' + order.customer._id) #{order.shipName}
                 p Address: #{order.shipAddress}
                 p City: #{order.shipCity}
                 p Zip:  #{order.shipPostalCode}
@@ -31,8 +33,8 @@ block content
                 each orderDet in orderDetails
                     tr
                         - var discount = +orderDet.discount.toFixed(2);
-                        - var orderprice = Math.round(orderDet.quantity * orderDet.unitPrice * (1 - discount));
-                        - sum += orderprice;
+                        - var orderPrice = Math.round(orderDet.quantity * orderDet.unitPrice * (1 - discount));
+                        - sum += orderPrice;
                         td
                             p #{orderDet.product.name}
                         td
@@ -42,7 +44,7 @@ block content
                         td
                             p #{discount}
                         td
-                            p #{orderprice}
+                            p #{orderPrice}
                 tr
                     td
                         h4 Total

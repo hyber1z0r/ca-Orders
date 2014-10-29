@@ -6,6 +6,7 @@ var mongo = require('../database/mongo');
 var router = express.Router();
 var models = require('../database/model');
 
+/* The get request for /orders that renders all orders in a table */
 router.get('/', function (req, res) {
     getOrders(function (err, orders) {
         if (err) {
@@ -19,6 +20,7 @@ router.get('/', function (req, res) {
     });
 });
 
+/* Fecthes all orders in the database */
 function getOrders(callback) {
     mongo.connect();
     var orders = [];
@@ -34,6 +36,7 @@ function getOrders(callback) {
     });
 }
 
+/* The Get request for a specific order with details */
 router.get('/:id', function (req, res) {
     var id = req.param('id');
     getOrder(id, function (err, data) {
@@ -50,7 +53,7 @@ router.get('/:id', function (req, res) {
                         error: err
                     });
                 } else {
-                    var dataObj = {order: data, orderDetails : detailsData};
+                    var dataObj = {order: data, orderDetails: detailsData};
                     res.render('orderdetails', dataObj);
                 }
             });
@@ -58,10 +61,11 @@ router.get('/:id', function (req, res) {
     });
 });
 
+/* Gets order information for one specific order! Including the customer and employee information */
 function getOrder(id, callback) {
     mongo.connect();
     var order;
-    models.OrderModel.find({_id: id}, function (err, data) {
+    models.OrderModel.find({_id: id}).populate('customer').populate('employee').exec(function (err, data) {
         if (err) {
             console.log('Error in getOrder ' + err);
             callback(err);
@@ -73,6 +77,7 @@ function getOrder(id, callback) {
     });
 }
 
+/* Gets the orderdetails for the specific order. Including the product information */
 function getOrderDetails(id, callback) {
     mongo.connect();
     var orderDetails = [];
@@ -88,6 +93,4 @@ function getOrderDetails(id, callback) {
     })
 }
 
-
 module.exports = router;
-
