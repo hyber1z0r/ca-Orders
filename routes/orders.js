@@ -89,5 +89,9 @@ function getOrderDetails(id, callback) {
     });
 }
 
+function getProducts(id, callback){
+
+}
+
 module.exports = router;
 
