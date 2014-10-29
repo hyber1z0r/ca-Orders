@@ -50,8 +50,7 @@ router.get('/:id', function (req, res) {
                         error: err
                     });
                 } else {
-                    var dataObj = {order: data, orderDetails: detailsData};
-                    console.log(dataObj);
+                    var dataObj = {order: data, orderDetails : detailsData};
                     res.render('orderdetails', dataObj);
                 }
             });
@@ -77,7 +76,7 @@ function getOrder(id, callback) {
 function getOrderDetails(id, callback) {
     mongo.connect();
     var orderDetails = [];
-    models.DetailsModel.find({orderId: id}, function (err, data) {
+    models.DetailsModel.find({order: id}).populate('product').exec(function (err, data) {
         if (err) {
             console.log('Error in getorderDetails ' + err);
             callback(err);
@@ -86,12 +85,9 @@ function getOrderDetails(id, callback) {
         }
         mongo.close();
         callback(null, orderDetails);
-    });
+    })
 }
 
-function getProducts(id, callback){
-
-}
 
 module.exports = router;
 
