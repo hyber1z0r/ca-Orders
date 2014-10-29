@@ -30,17 +30,19 @@ block content
                 - var sum = 0;
                 each orderDet in orderDetails
                     tr
+                        - var discount = +orderDet.discount.toFixed(2);
+                        - var orderPrice = Math.round(orderDet.quantity * orderDet.unitPrice * (1 - discount));
+                        - sum += orderprice;
                         td
-                            p #{orderDet.productId}
+                            p #{orderDet.product.name}
                         td
                             p #{orderDet.unitPrice}
                         td
                             p #{orderDet.quantity}
                         td
-                            p #{orderDet.discount}
+                            p #{discount}
                         td
-                            - sum += orderDet.quantity * orderDet.unitPrice * (1 - orderDet.discount);
-                            p #{orderDet.quantity * orderDet.unitPrice * (1 - orderDet.discount)}
+                            p #{orderPrice}
                 tr
                     td
                         h4 Total
