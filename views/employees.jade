@@ -1,0 +1,22 @@
+extends layout
+block content
+    div.container
+        h1 Employee details
+        div.col-md-12
+            div.col-md-3
+                p ID: #{employee._id}
+                p Country:
+                p Region:
+                p City:
+                p Zip:
+                p Address:
+            div.col-md-3
+            div.col-md-3
+                p Company:
+                p Title:
+                p Name:
+                p Phone:
+                p Fax:
+            div.col-md-3
+        a(target='_parent' id="BackButton2").btn.btn-primary
+            span.glyphicon.glyphicon-arrow-left &nbsp;Back

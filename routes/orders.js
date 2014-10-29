@@ -35,7 +35,7 @@ function getOrders(callback) {
         callback(null, orders);
     });
 }
-
+// Needs handling for showing an error page with a paragraph saying 404
 /* The Get request for a specific order with details */
 router.get('/:id', function (req, res) {
     var id = req.param('id');
