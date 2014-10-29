@@ -2,14 +2,11 @@ function goBack() {
     window.history.back()
 }
 $(document).ready(function(){
-<<<<<<< HEAD
     $("#BackButton2").click(goBack)
-=======
     $("#BackButton").click(goBack);
     setTimeout("slideit()",2500);
     $('#slider > img#1').fadeIn(300);
     startSlider();
->>>>>>> 6dddd7b0cd0bc4ea7fdc8d829440443f8d5205f4
 });
 
 function startSlider(){

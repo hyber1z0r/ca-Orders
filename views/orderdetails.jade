@@ -34,11 +34,7 @@ block content
                     tr
                         - var discount = +orderDet.discount.toFixed(2);
                         - var orderPrice = Math.round(orderDet.quantity * orderDet.unitPrice * (1 - discount));
-<<<<<<< HEAD
                         - sum += orderPrice;
-=======
-                        - sum += orderprice;
->>>>>>> 6dddd7b0cd0bc4ea7fdc8d829440443f8d5205f4
                         td
                             p #{orderDet.product.name}
                         td
