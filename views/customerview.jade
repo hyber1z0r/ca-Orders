@@ -1,0 +1,15 @@
+extends layout
+block content
+    div.container
+        h1 View Customers
+        table.table.table-striped.table-hover.table-bordered
+            thead
+                tr
+                    th ID:
+                    th Company:
+                    th Country:
+                    th Name:
+            tbody
+
+    a(href='/orders', target='_parent').btn.btn-primary
+        span.glyphicon.glyphicon-arrow-left &nbsp;Back

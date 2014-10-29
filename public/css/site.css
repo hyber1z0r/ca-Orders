@@ -98,3 +98,17 @@ a.right{
     float: right;
     margin-right: 20px;
 }
+
+.home,.orders,.customers,.employees,.categories {
+    color: #bfbbc1;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.welcome,.orderview {
+    font-family: Calibri;
+}
+
+.btn {
+    border-radius: 2em;
+}
