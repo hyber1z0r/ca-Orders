@@ -53,10 +53,11 @@ body {
 
 .footer {
     position: absolute;
+    margin-top: 70px;
+    padding-top: 50px;
     right: 0;
-    bottom: 0;
+    bottom: 100px;
     left: 0;
-    padding: 1rem;
     background-color: #39444e;
     color: #aeaab0;
 }
@@ -65,3 +66,30 @@ h1,h2,h3,h4,h5{
     color: #c76918;
 }
 
+#slider{
+    width: 400px;
+    height: 600px;
+    overflow: hidden;
+    margin: 30px auto;
+    }
+#slider>img{
+    width: 400px;
+    height: 600px;
+    float:left;
+    display: none;
+
+}
+
+#wrapper {
+
+    width: 400px;
+    margin: 0 auto;
+}
+
+a.left{
+ float: left;
+}
+
+a.right{
+    float: right;
+}
