@@ -8,6 +8,7 @@ block content
                     th Name
                     th ID
                     th Description
+                    th Edit / Delete
             tbody
             each category in categories
                 tr
@@ -17,6 +18,11 @@ block content
                         p #{category._id}
                     td
                         p #{category.description}
+                    td
+                        button.btn.btn-info(type='button', data-toggle='modal', data-target='#editModal', id="editbutton")
+                            span.glyphicon.glyphicon-comment
+                        button.btn.btn-info(type='button',data-toggle='modal', data-target='#deleteModal', id="deletebutton", rowid=category._id)
+                            span.glyphicon.glyphicon-trash
 
         a(href='/orders', target='_parent').btn.btn-primary
             span.glyphicon.glyphicon-arrow-left &nbsp;Back

@@ -9,6 +9,7 @@ block content
                th Name
                th Title
                th Hire date
+               th Edit / Delete
          tbody
          each employee in employees
             tr
@@ -20,5 +21,10 @@ block content
                   p #{employee.title}
                td
                   p #{employee.hireDate}
+               td
+                  button.btn.btn-info(type='button', data-toggle='modal', data-target='#editModal', id="editbutton")
+                        span.glyphicon.glyphicon-comment
+                  button.btn.btn-info(type='button',data-toggle='modal', data-target='#deleteModal', id="deletebutton", rowid=employee._id)
+                        span.glyphicon.glyphicon-trash
       a(href='/orders', target='_parent').btn.btn-primary
          span.glyphicon.glyphicon-arrow-left &nbsp;Back
