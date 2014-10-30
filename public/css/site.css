@@ -99,7 +99,7 @@ a.right{
     margin-right: 20px;
 }
 
-.home,.orders,.customers,.employees,.categories {
+.home,.orders,.customers,.employees,.categories,.products {
     color: #bfbbc1;
     font-size: 20px;
     text-decoration: none;
@@ -111,4 +111,18 @@ a.right{
 
 .btn {
     border-radius: 2em;
+}
+
+.errorpic {
+ display: block;
+ margin-right: auto;
+ margin-left: auto;
+    height: 250px;
+}
+
+.errorword {
+    text-align: center;
+    font-size: 30px;
+    color: #c76918;
+
 }
