@@ -142,3 +142,8 @@ a.right{
 .dollartype {
     font-size: 13px;
 }
+
+.input-group-addon
+{
+    text-align: left;
+}
