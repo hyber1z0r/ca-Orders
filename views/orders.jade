@@ -27,7 +27,7 @@ block content
                             //span.glyphicon.glyphicon-comment
                         button.btn.btn-info(type='button', data-toggle='modal', data-target='#editModal', id="editbutton")
                             span.glyphicon.glyphicon-comment
-                        button.btn.btn-info(type='button',data-toggle='modal', data-target='#deleteModal', id="deletebutton")
+                        button.btn.btn-info(type='button',data-toggle='modal', data-target='#deleteModal', id="deletebutton", rowid=order._id)
                             span.glyphicon.glyphicon-trash
 
         #editModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
@@ -55,8 +55,8 @@ block content
                             span.input-group-addon Country:
                                 input.form-control(type='text', placeholder='Country:')
                     .modal-footer
-                        button.btn.btn-primary(type='button', data-dismiss='modal') Go back
-                        button.btn.btn-danger(type='button',data-toggle='modal', data-target='#areYouSureModal', id="areYouSurebutton") Save changes
+                        button.btn.btn-default(type='button', data-dismiss='modal') Go back
+                        button.btn.btn-success(type='button',data-toggle='modal', data-target='#areYouSureModal', id="areYouSurebutton") Save changes
         #areYouSureModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
             .modal-dialog
                 .modal-content
@@ -68,8 +68,8 @@ block content
                     .modal-body
                         p Are you sure you want to save changes?
                     .modal-footer
-                        button.btn.btn-danger(type='button') Yes
-                        button.btn.btn-primary(type='button', data-dismiss='modal') No
+                        button.btn.btn-success(type='button') Yes
+                        button.btn.btn-danger(type='button', data-dismiss='modal') No
         #deleteModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
             .modal-dialog
                 .modal-content
@@ -81,6 +81,6 @@ block content
                     .modal-body
                         p You are about to delete an order. Are you sure you want to proceed?
                     .modal-footer
-                        button.btn.btn-primary(type='button', data-dismiss='modal') No
-                        button.btn.btn-danger(type='button') Yes
+                        button.btn.btn-default(type='button', data-dismiss='modal') No
+                        button.btn.btn-danger(type='button', id="orderdelete", data-dismiss='modal') Yes
 
