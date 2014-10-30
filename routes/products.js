@@ -24,7 +24,7 @@ router.get('/', function (req, res) {
 function getProducts(callback) {
     mongo.connect();
     var products = [];
-    models.ProductModel.find(function (err, data) {
+    models.ProductModel.find({}).populate('category').exec(function (err, data) {
         if (err) {
             callback(err);
             console.log(err);

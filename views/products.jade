@@ -19,7 +19,7 @@ block content
                     td
                         a(href='/products/' + product._id) #{product.name}
                     td
-                        p #{product.category}
+                        a(href='/categories/' + product.category._id) #{product.category.name}
                     td
                         p #{product.unitPrice}
                     td

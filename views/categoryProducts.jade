@@ -12,7 +12,7 @@ block content
             each product in products
                 tr
                     td
-                        p #{product.name}
+                        a(href='/products/' + product._id) #{product.name}
                     td
                         p #{product.unitsInStock}
                     td

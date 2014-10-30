@@ -36,7 +36,7 @@ block content
                         - var orderPrice = Math.round(orderDet.quantity * orderDet.unitPrice * (1 - discount));
                         - sum += orderPrice;
                         td
-                            p #{orderDet.product.name}
+                            a(href='/products/' + orderDet.product._id) #{orderDet.product.name}
                         td
                             p #{orderDet.unitPrice}
                         td

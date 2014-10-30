@@ -47,7 +47,6 @@ router.get('/:id', function (req, res) {
                 error: err
             });
         } else {
-            console.log(data);
             res.render('customerdetails', {customer: data});
         }
     });
