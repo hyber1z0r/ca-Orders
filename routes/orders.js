@@ -93,4 +93,25 @@ function getOrderDetails(id, callback) {
     })
 }
 
+/* Deletes an existing order in the database */
+router.delete('/:id', function (req, res) {
+    var id = req.param('id');
+    mongo.connect();
+    models.OrderModel.remove({_id: id}, function (err) {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            models.DetailsModel.remove({order: id}, function (err) {
+                if (err) {
+                    res.json(err);
+                } else {
+                    res.json({status: 'ok'});
+                }
+                mongo.close();
+            })
+        }
+    })
+});
+
 module.exports = router;
