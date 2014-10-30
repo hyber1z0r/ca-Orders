@@ -31,7 +31,7 @@ function getCategories(callback) {
             callback(err);
             console.log(err);
         } else {
-            customers = data;
+            categories = data;
         }
         mongo.close();
         callback(null, categories);

@@ -1,0 +1,24 @@
+extends layout
+block content
+    div.container
+        h1 View Products
+        table.table.table-striped.table-hover.table-bordered
+            thead
+                tr
+                    th ID
+                    th Name
+                    th Category
+                    th Unit price
+            tbody
+            each product in products
+                tr
+                    td
+                        p #{product._id}
+                    td
+                        a(href='/products/' + product._id) #{product.name}
+                    td
+                        p #{product.category}
+                    td
+                        p #{product.unitPrice}
+        a(href='/', target='_parent').btn.btn-primary
+            span.glyphicon.glyphicon-arrow-left &nbsp;Back

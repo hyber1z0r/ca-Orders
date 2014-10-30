@@ -1,0 +1,38 @@
+extends layout
+block content
+    div.container
+        h1 Product details
+        div.col-md-12
+            div.col-md-3
+                p ID: #{product._id}
+                p Name: #{product.name}
+                p Category: #{product.category}
+                p Quantity per unit: #{product.quantityPerUnit}
+                p Discontinued: #{product.discontinued}
+            div.col-md-3
+            div.col-md-3
+                p Unit price: #{product.unitPrice}
+                p Units in stock: #{product.unitsInStock}
+                p Units on order: #{product.unitsOnOrder}
+                p Reorder level:  #{product.reorderLevel}
+            div.col-md-3
+        table.table.table-striped.table-hover.table-bordered
+            thead
+                tr
+                    th ID
+                    th Date
+                    th Name
+                    th Address
+            tbody
+            each orderDet in orders
+                tr
+                    td
+                        a(href='/orders/' + orderDet.order._id) #{orderDet.order._id}
+                    td
+                        p #{orderDet.order.orderDate}
+                    td
+                        p #{orderDet.order.shipName}
+                    td
+                        p #{orderDet.order.shipAddress}
+        a(href='/products', target='_parent').btn.btn-primary
+            span.glyphicon.glyphicon-arrow-left &nbsp;Back
