@@ -126,3 +126,19 @@ a.right{
     color: #c76918;
 
 }
+
+#editbutton {
+    font-size: 10px;
+    background-color: #bfbbc1;
+    margin-right: 4px;
+}
+
+#deletebutton {
+    font-size: 10px;
+    background-color: #f02a00;
+
+}
+
+.dollartype {
+    font-size: 13px;
+}

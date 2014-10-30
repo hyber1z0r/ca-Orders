@@ -10,7 +10,7 @@ block content
                     th Date
                     th Name
                     th Address
-                    th Edit/Delete
+                    th Edit  /  Delete
             tbody
             each order in orders
                 tr
@@ -23,8 +23,9 @@ block content
                     td
                         p #{order.shipAddress}
                     td
-                        button.btn.btn-info(type='button')
+                        button.btn.btn-info(type='button', id="editbutton")
+                            span.glyphicon.glyphicon-comment
+                        button.btn.btn-info(type='button', id="deletebutton")
                             span.glyphicon.glyphicon-trash
-                        button.btn.btn-info(type='button')
-                            span.glyphicon.glyphicon
+
 
