@@ -8,10 +8,10 @@ var models = require('../database/model');
 
 
 /* Lists all categories in a table */
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
     getCategories(function (err, categories) {
         if (err) {
-            res.render(error, {
+            res.render('error', {
                 message: err.message,
                 error: err
             });
@@ -22,7 +22,7 @@ router.get('/', function(req, res) {
 });
 
 
-/* Fecthes all customers in the database */
+/* Fecthes all categories in the database */
 function getCategories(callback) {
     mongo.connect();
     var categories = [];
@@ -38,7 +38,7 @@ function getCategories(callback) {
     });
 }
 
-/* Renders the category products view */
+/* Renders the categories products view */
 router.get('/:id', function (req, res) {
     var id = req.param('id');
     getCategoryProducts(id, function (err, data) {
@@ -54,15 +54,13 @@ router.get('/:id', function (req, res) {
     });
 });
 
-
-
-/* Gets order information for one specific order! Including the customer and employee information */
+/* Gets category information for one specific category! */
 function getCategoryProducts(id, callback) {
     mongo.connect();
     var categoryP;
     models.ProductModel.find({category: id}).populate('category').exec(function (err, data) {
         if (err) {
-            console.log('Error in getOrder ' + err);
+            console.log('Error in getCategoryProducts ' + err);
             callback(err);
         } else {
             categoryP = data;
@@ -72,6 +70,30 @@ function getCategoryProducts(id, callback) {
     });
 }
 
+/* Deletes an existing category in the database */
+router.delete('/:id', function (req, res) {
+    var id = req.param('id');
+    mongo.connect();
+    models.CategoryModel.remove({_id: id}, function (err, rowsRemoved) {
+        if (err) {
+            res.json(err);
+        } else if (rowsRemoved == 0) {
+            res.json({status: 'not ok'});
+            res.end();
+            mongo.close();
+        }
+        else {
+            models.ProductModel.remove({category: id}, function (err) {
+                if (err) {
+                    res.json(err);
+                } else {
+                    res.json({status: 'ok'});
+                }
+                mongo.close();
+            });
+        }
+    });
+});
 
 
 module.exports = router;

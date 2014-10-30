@@ -97,9 +97,13 @@ function getOrderDetails(id, callback) {
 router.delete('/:id', function (req, res) {
     var id = req.param('id');
     mongo.connect();
-    models.OrderModel.remove({_id: id}, function (err) {
+    models.OrderModel.remove({_id: id}, function (err, rowsRemoved) {
         if (err) {
             res.json(err);
+        } else if (rowsRemoved == 0){
+            res.json({status: 'not ok'});
+            res.end();
+            mongo.close();
         }
         else {
             models.DetailsModel.remove({order: id}, function (err) {

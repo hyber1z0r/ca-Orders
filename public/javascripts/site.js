@@ -78,9 +78,9 @@ function showSlide(Id) {
 }
 var deleteId;
 function addDeleteHandler() {
-    $('.deletebutton').click(function (){
-            deleteId = $(this).attr('rowid');
-            console.log(deleteId);
+    // All deletes buttons will set the deleteId when pressed, this id matches the id of the row it was pressed.
+    $('.deletebutton').click(function () {
+        deleteId = $(this).attr('rowid');
     });
 
     $('#orderdelete').click(function () {
@@ -88,10 +88,28 @@ function addDeleteHandler() {
             url: './orders/' + deleteId,
             type: 'DELETE'
         }).done(function (data) {
-            if(data.status == 'ok'){
+            if (data.status == 'ok') {
                 // show toast with success
                 toastSuccess();
-                setTimeout('location.reload(true)',2500);
+                setTimeout('location.reload(true)', 2500);
+            } else if (data.status == 'not ok') {
+                toastNotFound();
+            }
+        }).fail(function () {
+            toastFailure();
+        })
+    });
+    $('#categorydelete').click(function () {
+        $.ajax({
+            url: './categories/' + deleteId,
+            type: 'DELETE'
+        }).done(function (data) {
+            if (data.status == 'ok') {
+                // show toast with success
+                toastSuccess();
+                setTimeout('location.reload(true)', 2500);
+            } else if (data.status == 'not ok') {
+                toastNotFound();
             }
         }).fail(function () {
             toastFailure();
@@ -99,7 +117,7 @@ function addDeleteHandler() {
     })
 }
 
-function toastSuccess(){
+function toastSuccess() {
     toastr.options = {
         "closeButton": false,
         "debug": false,
@@ -113,12 +131,11 @@ function toastSuccess(){
         "hideEasing": "linear",
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
-    }
-    toastr.success("Successfully deleted the order", "Success");
+    };
+    toastr.success("Successfully deleted the item", "Success");
 }
 
-function toastFailure(){
-    toastr.error("The order couldn't be deleted, due to some technical error.", "Error");
+function toastFailure() {
     toastr.options = {
         "closeButton": false,
         "debug": false,
@@ -132,5 +149,24 @@ function toastFailure(){
         "hideEasing": "linear",
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
-    }
+    };
+    toastr.error("The item couldn't be deleted, due to some technical error.", "Error");
+}
+
+function toastNotFound() {
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "positionClass": "toast-bottom-right",
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+    toastr.warning("Nothing was removed, as the document wasn't found.", "404");
 }
