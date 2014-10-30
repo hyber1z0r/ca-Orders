@@ -5,23 +5,23 @@ block content
         table.table.table-striped.table-hover.table-bordered
             thead
                 tr
-                    th Name
                     th ID
+                    th Name
                     th Description
                     th Edit / Delete
             tbody
             each category in categories
                 tr
                     td
-                        a(href='/categories/'+ category._id)  #{category.name}
-                    td
                         p #{category._id}
+                    td
+                        a(href='/categories/'+ category._id) #{category.name}
                     td
                         p #{category.description}
                     td
-                        button.btn.btn-info(type='button', data-toggle='modal', data-target='#editModal', id="editbutton")
+                        button.btn.btn-info(type='button', data-toggle='modal', data-target='#editModal', class="editbutton")
                             span.glyphicon.glyphicon-comment
-                        button.btn.btn-info(type='button',data-toggle='modal', data-target='#deleteModal', id="deletebutton", rowid=category._id)
+                        button.btn.btn-info(type='button',data-toggle='modal', data-target='#deleteModal', class="deletebutton", rowid=category._id)
                             span.glyphicon.glyphicon-trash
 
         a(href='/orders', target='_parent').btn.btn-primary

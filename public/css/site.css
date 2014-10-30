@@ -127,13 +127,13 @@ a.right{
 
 }
 
-#editbutton {
+.editbutton {
     font-size: 10px;
     background-color: #bfbbc1;
     margin-right: 4px;
 }
 
-#deletebutton {
+.deletebutton {
     font-size: 10px;
     background-color: #f02a00;
 

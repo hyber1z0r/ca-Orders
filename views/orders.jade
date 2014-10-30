@@ -25,9 +25,9 @@ block content
                     td
                         //button.btn.btn-info(type='button', id="editbutton")
                             //span.glyphicon.glyphicon-comment
-                        button.btn.btn-info(type='button', data-toggle='modal', data-target='#editModal', id="editbutton")
+                        button.btn.btn-info(type='button', data-toggle='modal', data-target='#editModal', class="editbutton")
                             span.glyphicon.glyphicon-comment
-                        button.btn.btn-info(type='button',data-toggle='modal', data-target='#deleteModal', id="deletebutton", rowid=order._id)
+                        button.btn.btn-info(type='button',data-toggle='modal', data-target='#deleteModal', class="deletebutton", rowid=order._id)
                             span.glyphicon.glyphicon-trash
 
         #editModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')

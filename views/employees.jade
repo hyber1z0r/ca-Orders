@@ -22,9 +22,9 @@ block content
                td
                   p #{employee.hireDate}
                td
-                  button.btn.btn-info(type='button', data-toggle='modal', data-target='#editModal', id="editbutton")
+                  button.btn.btn-info(type='button', data-toggle='modal', data-target='#editModal', class="editbutton")
                         span.glyphicon.glyphicon-comment
-                  button.btn.btn-info(type='button',data-toggle='modal', data-target='#deleteModal', id="deletebutton", rowid=employee._id)
+                  button.btn.btn-info(type='button',data-toggle='modal', data-target='#deleteModal', class="deletebutton", rowid=employee._id)
                         span.glyphicon.glyphicon-trash
       a(href='/orders', target='_parent').btn.btn-primary
          span.glyphicon.glyphicon-arrow-left &nbsp;Back

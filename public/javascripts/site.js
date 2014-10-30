@@ -76,13 +76,16 @@ function showSlide(Id) {
     sliderInt = Id;
     sliderNext = Id + 1;
 }
-
+var deleteId;
 function addDeleteHandler() {
+    $('.deletebutton').click(function (){
+            deleteId = $(this).attr('rowid');
+            console.log(deleteId);
+    });
+
     $('#orderdelete').click(function () {
-        // select the id
-        var id = $('#deletebutton').attr('rowid');
         $.ajax({
-            url: './orders/' + id,
+            url: './orders/' + deleteId,
             type: 'DELETE'
         }).done(function (data) {
             if(data.status == 'ok'){

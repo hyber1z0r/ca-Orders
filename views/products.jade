@@ -23,7 +23,7 @@ block content
                     td
                         p #{product.unitPrice}
                     td
-                        button.btn.btn-info(type='button', data-toggle='modal', data-target='#editModal', id="editbutton")
+                        button.btn.btn-info(type='button', data-toggle='modal', data-target='#editModal', class="editbutton")
                             span.glyphicon.glyphicon-comment
-                        button.btn.btn-info(type='button',data-toggle='modal', data-target='#deleteModal', id="deletebutton", rowid=products._id)
+                        button.btn.btn-info(type='button',data-toggle='modal', data-target='#deleteModal', class="deletebutton", rowid=products._id)
                             span.glyphicon.glyphicon-trash
