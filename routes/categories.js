@@ -65,7 +65,7 @@ function getCategoryProducts(id, callback) {
             console.log('Error in getOrder ' + err);
             callback(err);
         } else {
-            categoryP = data[0];
+            categoryP = data;
         }
         mongo.close();
         callback(null, categoryP);
