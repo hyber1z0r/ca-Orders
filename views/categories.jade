@@ -31,12 +31,9 @@ block content
                         button.close(type='button', data-dismiss='modal')
                             span(aria-hidden='true') ×
                             span.sr-only Close
-                        h4#myModalLabel.modal-title Delete order
+                        h4#myModalLabel.modal-title Alert
                     .modal-body
-                        p You are about to delete an order. Are you sure you want to proceed?
+                        p You are not able to delete an category, because it will delete all the products inside it, then it won't be possible to load the order details in orders.
                     .modal-footer
-                        button.btn.btn-default(type='button', data-dismiss='modal') No
-                        button.btn.btn-danger(type='button', id="categorydelete", data-dismiss='modal') Yes
-
         a(href='/orders', target='_parent').btn.btn-primary
             span.glyphicon.glyphicon-arrow-left &nbsp;Back

@@ -29,8 +29,9 @@ a .footer.footer-info {
     border-right: solid 1px #fff;
 }
 
-#BackButton a:hover {
+#BackButton:hover {
     background: #06c;
+
 }
 
 html {
@@ -139,11 +140,12 @@ a.right{
 
 }
 
-.dollartype {
-    font-size: 13px;
-}
-
 .input-group-addon
 {
     text-align: left;
 }
+
+.docsource {
+    margin-top: 200px;
+}
+

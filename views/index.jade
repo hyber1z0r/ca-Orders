@@ -7,20 +7,23 @@ block content
         div.col-md-6
             p Hello and welcome to this project made by Damjan, Jakob, Vuk, Youssef.  On this site your able to choose between the following 5 topics: Home, Categories, Orders, Customers and Employees. Clicking on Orders your able to watch the different types of orders, and you can also see all the customers by choosing the topic "Customers". The topic "Employees" carries the list of all the employees.
             p Project: Working with this project (CA3), we learned to work more as a team, but also learned to give better explanations to each other, since we diveded the project into several tasks.
-            p We learned to use mongodb, mongoose, node.js, jade files, jquery and css.
+            p We learned to use mongodb, mongoose, node.js, jade files, jquery and css and a little bit of ajax.
+            p We have some problems with our delete function in categories. If we delete it, which we made it impossible to do, it would delete all the products in the category. If they get deleted, our orders won't work. Though the products get deleted from the menu, "Products". Orders can still be deleted and it works. The edit button still doesn't work but it is designed.
+                span.glyphicon.glyphicon-heart
 
             div.col-md-3
-                a(href='http://www.github.com/hyber1z0r/ca-orders').btn.btn-primary Source &nbsp;
+                a(href='http://www.github.com/hyber1z0r/ca-orders').btn.btn-primary.docsource Source &nbsp;
                   span.glyphicon.glyphicon-cloud-download
             div.col-md-3
-                a(href='#').btn.btn-primary Documentation &nbsp;
+                a(href='/DokumentationCA3.pdf', target = "_blank").btn.btn-primary.docsource Documentation &nbsp;
                     span.glyphicon.glyphicon-cloud-download
 
         div.col-md-6
             #wrapper
                 #slider
-                    img(id="1", src='../images/Vuk.jpg')
-                    img(id="2", src='../images/Youssef.jpg')
-                    img(id="3", src='../images/Jakob.jpg')
-                    img(id="4", src='../images/Damjan.jpg')
+                    img(id="1", src='../images/Damjan.jpg')
+                    img(id="2", src='../images/Vuk.jpg')
+                    img(id="3", src='../images/Youssef.jpg')
+                    img(id="4", src='../images/Jakob.jpg')
+
 
